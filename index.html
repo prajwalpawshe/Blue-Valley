@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blue Valley Shipping — Candidate Form</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="overlay" aria-hidden="true"></div>
+
+  <main class="form-wrapper" role="main" aria-labelledby="formTitle">
+    <h1 id="formTitle" class="title">Blue Valley Shipping — Application</h1>
+
+    <!-- Progress bar -->
+    <div class="progressbar" aria-hidden="false">
+      <div id="progress" class="progress"></div>
+      <div class="progress-step active" data-title="Personal">1</div>
+      <div class="progress-step" data-title="Job">2</div>
+      <div class="progress-step" data-title="Review">3</div>
+      <div class="progress-step" data-title="Submit">4</div>
+    </div>
+
+    <!-- Multi-step form -->
+    <form id="candidateForm" novalidate>
+      <!-- STEP 1 -->
+      <section class="form-step active" data-step="0">
+        <h2>Personal Information</h2>
+
+        <label class="field">
+          <span class="label-text">Full name</span>
+          <input id="fullname" name="fullname" type="text" placeholder="John Doe" required />
+        </label>
+
+        <label class="field">
+          <span class="label-text">Email</span>
+          <input id="email" name="email" type="email" placeholder="you@company.com" required />
+        </label>
+
+        <label class="field">
+          <span class="label-text">Phone</span>
+          <input id="phone" name="phone" type="tel" placeholder="+1 555 123 4567" required />
+        </label>
+
+        <div class="btns">
+          <button type="button" class="btn next">Next</button>
+        </div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section class="form-step" data-step="1">
+        <h2>Job Details</h2>
+
+        <label class="field">
+          <span class="label-text">Position applied</span>
+          <select id="position" name="position" required>
+            <option value="">Select a position</option>
+            <option>Deck Officer</option>
+            <option>Marine Engineer</option>
+            <option>Cook</option>
+            <option>Support / Other</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="label-text">Years of experience</span>
+          <input id="experience" name="experience" type="number" min="0" placeholder="e.g. 3" />
+        </label>
+
+        <label class="field">
+          <span class="label-text">Upload resume</span>
+          <div class="file-upload">
+            <label for="resume" class="custom-file-upload">📂 Choose file</label>
+            <span id="file-chosen" class="file-chosen">No file chosen</span>
+          </div>
+          <input id="resume" name="resume" type="file" accept=".pdf,.doc,.docx" />
+        </label>
+
+        <div class="btns">
+          <button type="button" class="btn secondary prev">Back</button>
+          <button type="button" class="btn next">Next</button>
+        </div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section class="form-step" data-step="2">
+        <h2>Review Your Details</h2>
+
+        <div class="review-card">
+          <div class="review-row"><strong>Name:</strong> <span id="reviewName">—</span></div>
+          <div class="review-row"><strong>Email:</strong> <span id="reviewEmail">—</span></div>
+          <div class="review-row"><strong>Phone:</strong> <span id="reviewPhone">—</span></div>
+          <div class="review-row"><strong>Position:</strong> <span id="reviewPosition">—</span></div>
+          <div class="review-row"><strong>Resume:</strong> <span id="reviewResume">No file</span></div>
+          <div class="review-row"><strong>Experience:</strong> <span id="reviewExperience">—</span></div>
+        </div>
+
+        <div class="btns">
+          <button type="button" class="btn secondary prev">Back</button>
+          <button type="button" class="btn next">Next</button>
+        </div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section class="form-step" data-step="3">
+        <h2>Submit Application</h2>
+        <p class="submit-note">Click submit to send your application.</p>
+
+        <div class="btns">
+          <button type="button" class="btn secondary prev">Back</button>
+          <button type="submit" class="btn">Submit application</button>
+        </div>
+
+        <p id="responseMsg" class="response-msg" role="status"></p>
+      </section>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
